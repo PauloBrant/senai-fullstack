@@ -2,38 +2,90 @@
 /* CSS RESET*/
 margin: 0;
 padding: 0;
+outline: 0;
 box-sizing: border-box;
 }
 
-.container-grid{
-    width: 1200px;
-    margin: 0 auto;
-}
-
-.cabecalho{
-    height: 50%;
+header{
+    box-sizing: border-box;
+    height: 60px;
+    padding: 2rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-.menu{
-    width: 600px;
-    display: flex;
     justify-content: space-between;
+    background-color: #1e1c21;   
 }
 
-.menu a{
+#btn-celular {
+    display: none;
+        
+}
+
+#menu{
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+}
+
+#menu a{
     color: aliceblue;
     text-decoration: none;
-
+    display: block;
+    padding: .5rem;
 }
 
-header{
-    background-color: #1e1c21;
-    height: 60px;
-    padding-top: 20px;
-}
-a{
-    color: white;
+
+@media (max-width: 850px) {
+    #btn-celular {
+        display: flex;
+        cursor: pointer;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        color:#e7e7e7;
+        border: none;
+        background: none;
+       
+    }
+    #menu {
+      /*  display: none;*/
+      visibility: hidden;
+      overflow-y: hidden;
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 70px;
+      right: 0px;
+      background: #e7e7e7;
+      transition: .6s;
+      height: 0px;
+      z-index: 1000;
+             
+    }
+    
+    #menu a{
+        color: rgb(0, 4, 6);
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0,0,0,.05);
+    }
+    #nav.active #menu {
+        visibility: visible; 
+        overflow-y: auto;
+        height: calc(100vh - 70px);
+    }
+
+    #hamburger {
+        width: 20px;
+        border-top: 2px solid ;
+        border-color: #e7e7e7;
+    }
+    #hamburger::after, #hamburger::before {
+        content:'';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #e7e7e7;
+        margin-top: 5px;
+    }
+
 }
